@@ -1,5 +1,8 @@
-streamlit
+@"
+Flask
 pandas
 scikit-learn
 xgboost
 joblib
+gunicorn
+"@ | Set-Content requirements.txt
