@@ -42,7 +42,7 @@ dashboard where users can enter session details and receive predictions.
 - **Language:** Python
 - **Machine Learning:** XGBoost, Scikit-learn
 - **Data Processing:** Pandas, NumPy
-- **Web Application:** Streamlit, Flask
+- **Web Application:** Render, Flask
 - **Model Serialization:** Joblib
 - **Development:** Jupyter Notebook
 - **Version Control:** Git and GitHub
@@ -69,6 +69,5 @@ anomalous-user-detection/
 │
 ├── anomaly_detection.ipynb
 ├── app.py
-├── streamlit_app.py
 ├── requirements.txt
 └── README.md
