@@ -1,8 +1,6 @@
-Set-Content requirements.txt -Value @(
-    "Flask"
-    "pandas"
-    "scikit-learn"
-    "xgboost"
-    "joblib"
-    "gunicorn"
-)
+Flask
+pandas
+scikit-learn
+xgboost
+joblib
+gunicorn
