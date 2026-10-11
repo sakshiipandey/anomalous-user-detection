@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CyberShield | Anomaly Detection</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">⬡</span>
+                <h2>CyberShield</h2>
+            </div>
+
+            <p class="menu-title">MAIN MENU</p>
+
+            <nav>
+                <a href="#" class="nav-item active">
+                    <span>▦</span> Dashboard
+                </a>
+
+                <a href="#detector" class="nav-item">
+                    <span>⌕</span> Threat Detection
+                </a>
+
+                <a href="#about" class="nav-item">
+                    <span>◈</span> About Model
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="status-dot"></div>
+                <div>
+                    <p>Detection System</p>
+                    <span>Ready to analyze</span>
+                </div>
+            </div>
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">SECURITY INTELLIGENCE PLATFORM</p>
+                    <h1>Security Dashboard</h1>
+                    <p class="subtitle">
+                        Monitor network activity and identify potential threats.
+                    </p>
+                </div>
+
+                <div class="system-status">
+                    <span class="status-dot"></span>
+                    SYSTEM ONLINE
+                </div>
+            </header>
+
+
+            <!-- Overview Cards -->
+            <section class="overview-grid">
+
+                <div class="overview-card">
+                    <div class="card-top">
+                        <span>Detection Engine</span>
+                        <span class="card-icon blue">⬡</span>
+                    </div>
+                    <h2>XGBoost</h2>
+                    <p>Machine learning model</p>
+                </div>
+
+                <div class="overview-card">
+                    <div class="card-top">
+                        <span>Analysis Mode</span>
+                        <span class="card-icon purple">◈</span>
+                    </div>
+                    <h2>Real-time</h2>
+                    <p>On-demand session analysis</p>
+                </div>
+
+                <div class="overview-card">
+                    <div class="card-top">
+                        <span>Detection Target</span>
+                        <span class="card-icon green">⌘</span>
+                    </div>
+                    <h2>Network</h2>
+                    <p>Suspicious session activity</p>
+                </div>
+
+            </section>
+
+
+            <!-- Detector -->
+            <section class="detector-section" id="detector">
+
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">AI-POWERED ANALYSIS</p>
+                        <h2>Network Anomaly Detector</h2>
+                        <p class="subtitle">
+                            Enter the session details to analyze network activity.
+                        </p>
+                    </div>
+
+                    <div class="model-badge">● XGBoost Model</div>
+                </div>
+
+
+                <form id="predictionForm">
+
+                    <h3 class="form-heading">
+                        <span class="heading-number">01</span>
+                        Network Configuration
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="protocol_type">Protocol Type</label>
+                            <select id="protocol_type" required>
+                                <option value="TCP">TCP</option>
+                                <option value="UDP">UDP</option>
+                                <option value="ICMP">ICMP</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="encryption_used">Encryption</label>
+                            <select id="encryption_used" required>
+                                <option value="AES">AES</option>
+                                <option value="DES">DES</option>
+                                <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="browser_type">Browser Type</label>
+                            <select id="browser_type" required>
+                                <option value="Chrome">Chrome</option>
+                                <option value="Firefox">Firefox</option>
+                                <option value="Safari">Safari</option>
+                                <option value="Edge">Edge</option>
+                                <option value="Unknown">Unknown</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <h3 class="form-heading second-heading">
+                        <span class="heading-number">02</span>
+                        Session Metrics
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="network_packet_size">
+                                Network Packet Size
+                            </label>
+                            <input type="number" id="network_packet_size" min="0" step="any" placeholder="e.g. 512"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login_attempts">
+                                Login Attempts
+                            </label>
+                            <input type="number" id="login_attempts" min="0" step="any" placeholder="e.g. 3" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="session_duration">
+                                Session Duration
+                            </label>
+                            <input type="number" id="session_duration" min="0" step="any" placeholder="e.g. 120"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ip_reputation_score">
+                                IP Reputation Score
+                            </label>
+                            <input type="number" id="ip_reputation_score" min="0" max="100" step="any"
+                                placeholder="0–100" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="failed_logins">
+                                Failed Logins
+                            </label>
+                            <input type="number" id="failed_logins" min="0" step="any" placeholder="e.g. 1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="unusual_time_access">
+                                Unusual Time Access
+                            </label>
+                            <select id="unusual_time_access" required>
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+                        <button type="reset" class="reset-button">
+                            Reset Fields
+                        </button>
+
+                        <button type="submit" id="analyzeButton">
+                            <span>Analyze Session</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+
+                </form>
+
+
+                <!-- Prediction Result -->
+                <div id="resultBox" class="result-box" hidden>
+                    <div class="result-header">
+                        <div>
+                            <p class="eyebrow">ANALYSIS COMPLETE</p>
+                            <h2 id="resultTitle">Analysis Result</h2>
+                        </div>
+
+                        <span id="resultIcon" class="result-icon">✓</span>
+                    </div>
+
+                    <p id="resultMessage"></p>
+
+                    <div class="score-container">
+                        <div class="score-label">
+                            <span>Model Attack Score</span>
+                            <strong id="attackScore">--</strong>
+                        </div>
+
+                        <div class="score-track">
+                            <div id="scoreBar" class="score-bar"></div>
+                        </div>
+                    </div>
+
+                    <p class="disclaimer">
+                        This is a machine-learning prediction, not a
+                        confirmed security incident. The score is the
+                        model's estimated output, not necessarily a
+                        calibrated probability.
+                    </p>
+                </div>
+
+                <div id="errorBox" class="error-box" hidden></div>
+
+            </section>
+
+
+            <!-- About -->
+            <section class="about-section" id="about">
+                <p class="eyebrow">PROJECT INFORMATION</p>
+                <h2>Intelligent Threat Detection</h2>
+
+                <p>
+                    This project uses a trained XGBoost classifier to
+                    analyze network session features and classify them
+                    as normal or potentially malicious. Predictions are
+                    generated by the backend Flask API.
+                </p>
+            </section>
+
+
+            <footer>
+                <span>CyberShield · Anomalous User Detection</span>
+                <span>Machine Learning Project</span>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
